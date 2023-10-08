@@ -15,7 +15,7 @@ public class Human {
     private List<Human> parents;
     private List<Human> children;
 
-    public Human(long id, String name, Gender gender, LocalDate birthDay, LocalDate deathDay,
+    public Human(String name, Gender gender, LocalDate birthDay, LocalDate deathDay,
                  Human father, Human mather) {
         this.id = id;
         this.name = name;
@@ -29,12 +29,12 @@ public class Human {
         children = new ArrayList<>();
     }
 
-    public Human(long id, String name, Gender gender, LocalDate birthDay) {
-        this(id, name, gender, birthDay, null, null, null);
+    public Human(String name, Gender gender, LocalDate birthDay) {
+        this(name, gender, birthDay, null, null, null);
     }
 
-    public Human(long id, String name, Gender gender, LocalDate birthDay, Human father, Human mather) {
-        this(id, name, gender, birthDay,null, father, mather);
+    public Human(String name, Gender gender, LocalDate birthDay, Human father, Human mather) {
+        this(name, gender, birthDay,null, father, mather);
     }
 
     StringBuilder sb = new StringBuilder();
