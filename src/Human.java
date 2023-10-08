@@ -27,6 +27,7 @@ public class Human {
 
         parents = new ArrayList<>();
         children = new ArrayList<>();
+
     }
 
     public Human(String name, Gender gender, LocalDate birthDay) {
@@ -37,10 +38,13 @@ public class Human {
         this(name, gender, birthDay,null, father, mather);
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     StringBuilder sb = new StringBuilder();
     @Override
     public String toString() {
-        id ++;
         sb.append("ID: " + id + ", ");
         sb.append("Имя: " + name + ", ");
         sb.append("Пол: " + gender + ", ");
