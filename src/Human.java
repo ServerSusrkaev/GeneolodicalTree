@@ -12,10 +12,11 @@ public class Human {
     private LocalDate DeathDay;
     private Human father;
     private Human mather;
+    private Human spouse;
     private List<Human> children;
 
     public Human(String name, Gender gender, LocalDate birthDay, LocalDate deathDay,
-                 Human father, Human mather) {
+                 Human father, Human mather, Human spouse) {
         //this.id = id;
         this.name = name;
         this.gender = gender;
@@ -23,21 +24,24 @@ public class Human {
         DeathDay = deathDay;
         this.father = father;
         this.mather = mather;
+        this.spouse = spouse;
         children = new ArrayList<>();
     }
 
-    public Human(String name, Gender gender, LocalDate birthDay) {
-        this(name, gender, birthDay, null, null, null);
+    public Human(String name, Gender gender, LocalDate birthDay, Human spouse) {
+        this(name, gender, birthDay, null, null, null, spouse);
     }
 
     public Human(String name, Gender gender, LocalDate birthDay, Human father, Human mather) {
-        this(name, gender, birthDay,null, father, mather);
+        this(name, gender, birthDay,null, father, mather, null);
     }
 
     public void setId(long id) {this.id = id;}
 
+    public void setSpouse(Human spouse) {this.spouse = spouse;}
 
     StringBuilder sb = new StringBuilder();
+
     @Override
     public String toString() {
         sb.append("ID: " + id + ", ");
@@ -66,6 +70,11 @@ public class Human {
             }
         }else{
             sb.append("Дети не известны. ");
+        }
+        if(spouse != null){
+            sb.append("Супруг(а): " + spouse.name);
+        }else{
+            sb.append("Супруг(а) не известен(на)");
         }
         return sb.toString();
     }
