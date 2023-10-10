@@ -13,6 +13,8 @@ public class Human {
     private Human father;
     private Human mather;
     private Human spouse;
+
+    private List<Human> broSis;
     private List<Human> children;
 
     public Human(String name, Gender gender, LocalDate birthDay, LocalDate deathDay,
@@ -25,6 +27,8 @@ public class Human {
         this.father = father;
         this.mather = mather;
         this.spouse = spouse;
+
+        broSis = new ArrayList<>();
         children = new ArrayList<>();
     }
 
@@ -62,6 +66,14 @@ public class Human {
         }else {
             sb.append("Мать не известна. ");
         }
+        if(!broSis.isEmpty()){
+            sb.append("Брат/Сестра: ");
+            for (Human brosis: broSis) {
+                sb.append(brosis.name + ", ");
+            }
+        }else {
+            sb.append("Брат/Сестра не известны. ");
+        }
 
         if(children.size() != 0){
             sb.append("Дети: ");
@@ -84,5 +96,9 @@ public class Human {
     }
     public void addChild(Human human){
         children.add(human);
+    }
+
+    public void addBroSis(Human human){
+        broSis.add(human);
     }
 }
