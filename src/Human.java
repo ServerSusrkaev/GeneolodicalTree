@@ -79,7 +79,7 @@ public class Human {
         return sb.toString();
     }
 
-    public int countAge(LocalDate BirthDay){
+    private int countAge(LocalDate BirthDay){
         return Period.between(BirthDay, LocalDate.now()).getYears();
     }
     public void addChild(Human human){
