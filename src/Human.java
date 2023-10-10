@@ -12,22 +12,18 @@ public class Human {
     private LocalDate DeathDay;
     private Human father;
     private Human mather;
-    private List<Human> parents;
     private List<Human> children;
 
     public Human(String name, Gender gender, LocalDate birthDay, LocalDate deathDay,
                  Human father, Human mather) {
-        this.id = id;
+        //this.id = id;
         this.name = name;
         this.gender = gender;
         BirthDay = birthDay;
         DeathDay = deathDay;
         this.father = father;
         this.mather = mather;
-
-        parents = new ArrayList<>();
         children = new ArrayList<>();
-
     }
 
     public Human(String name, Gender gender, LocalDate birthDay) {
@@ -38,9 +34,8 @@ public class Human {
         this(name, gender, birthDay,null, father, mather);
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    public void setId(long id) {this.id = id;}
+
 
     StringBuilder sb = new StringBuilder();
     @Override
@@ -53,15 +48,12 @@ public class Human {
             sb.append("Возраст: " + countAge(BirthDay) + ", ");
         }
 
-        parents = new ArrayList<>();
         if(father != null){
-            parents.add(father);
             sb.append("Отец: " + father.name + ", ");
         }else{
             sb.append("Отец не известен. ");
         }
         if(mather != null){
-            parents.add(mather);
             sb.append("Мать: " + mather.name + ", ");
         }else {
             sb.append("Мать не известна. ");
@@ -75,19 +67,12 @@ public class Human {
         }else{
             sb.append("Дети не известны. ");
         }
-
         return sb.toString();
     }
-
-
-
-
-
 
     public int countAge(LocalDate BirthDay){
         return Period.between(BirthDay, LocalDate.now()).getYears();
     }
-
     public void addChild(Human human){
         children.add(human);
     }
