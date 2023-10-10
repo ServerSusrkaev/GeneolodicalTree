@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,9 +11,12 @@ public class GeneologicalTree {
         human.setId(id++);
     }
 
-    public void showInfo(){
-        for (Human human:humanList) {
-            System.out.println(human);
-        }
+    public void showInfo() throws IOException {
+        FileHandling fileHandling = new FileHandling();
+//        for (Human human:humanList) {
+//            System.out.println(human);
+//        }
+        fileHandling.writeToFile(humanList);
+        fileHandling.readFromFile();
     }
 }

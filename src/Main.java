@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class Main {
@@ -42,6 +43,10 @@ public class Main {
 //        mansur.addBroSis();
 //        milana.addBroSis();
 
-        tree.showInfo();
+        try{
+            tree.showInfo();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }
